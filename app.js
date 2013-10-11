@@ -23,6 +23,7 @@ app.configure(function(){
   app.use(app.router);
   app.use(require('stylus').middleware(__dirname + '/public'));
   app.use(express.static(path.join(__dirname, 'public')));
+  app.enable('trust proxy');
 });
 
 app.configure('development', function(){
@@ -64,7 +65,7 @@ app.post('/employee/new', function(req, res){
 app.get('/employee/:id/edit', function(req, res) {
 	employeeProvider.findById(req.param('_id'), function(error, employee) {
 		res.render('employee_edit',
-		{ 
+		{
 			title: employee.title,
 			employee: employee
 		});
