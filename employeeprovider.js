@@ -10,7 +10,7 @@ var Db = require('mongodb').Db,
     BSON = require('mongodb').pure().BSON,
     assert = require('assert');
 
-EmployeeProvider = function(host, port) {
+EmployeeProvider = function() {
   var that = this;
     MongoClient.connect(process.env.MONGOLAB_URI, function(err, db){
     if(err) { return console.dir(err); }
