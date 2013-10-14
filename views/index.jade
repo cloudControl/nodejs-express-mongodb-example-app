@@ -1,17 +1,33 @@
 extends layout
 
 block content
-    h1= title
-    #employees
-        - each employee in employees
-          div.employee
-            div.created_at= employee.created_at
-            div.title= employee.title 
-            div.name= employee.name
-                form( method="post", action="/employee/:id/delete") 
-                    input(name="_id", type="hidden", value=employee._id.toHexString()) 
-                    input(id="delete", value="X", type="submit")
-                form( method="get", action="/employee/:id/edit") 
-                    input(name="_id", type="hidden", value=employee._id.toHexString()) 
-                    input(id="edit", value="Edit", type="submit")
-        a(href="/employee/new")!= "Add New Employee"
+    div(id="wrap")
+        div.container
+            div.page-header
+                h1= title
+            #employees
+                - each employee in employees
+                  div(class="panel panel-primary")
+                    div.created_at(class="hidden")= employee.created_at
+                    div.panel-heading
+                        div.title(class="panel-title")= employee.title
+                    div.panel-body
+                        div(class="col-md-10")= employee.name
+                        div.col-md-1
+                            form( method="get", action="/employee/:id/edit")
+                                input(name="_id", type="hidden", value=employee._id.toHexString())
+                                input(id="edit", value="Edit", type="submit" class="btn")
+                        div.col-md-1
+                            form( method="post", action="/employee/:id/delete")
+                                input(name="_id", type="hidden", value=employee._id.toHexString())
+                                input(id="delete", value="X", type="submit" class="btn")
+                a(href="/employee/new")!= "Add New Employee"
+    div(id="footer")
+        div.container
+            p.text-muted
+                | Built with
+                | <a href="http://expressjs.com/">Express</a>,
+                | running on
+                | <a href="http://nodejs.org/">Node.JS</a>
+                | on
+                | <a href="https://www.cloudcontrol.com/">cloudControl</a>

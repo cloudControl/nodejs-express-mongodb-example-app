@@ -1,16 +1,11 @@
 extends layout
 
 block content
-    h1= title
-    div.newemployee
-        form( method="post")
-            div
-                div
-                    span.label Title :
-                    input(type="text", name="title", id="editEmployeeTitle")
-                div
-                    span.label Name :
-                    input(type="text", name="name", id="editEmployeeName")
-                div#editEmployeeSubmit
-                    input(type="submit", value="Save")
-        a(href="/")!= "Back to Employee List"
+    div.container
+        form.form-signin(method="post")
+            h2.form-singin-heading= title
+            input.form-control(type="text", name="title", id="editEmployeeTitle", placeholder="Title", autofocus)
+            input.form-control(type="text", name="name", id="editEmployeeName", placeholder="Name")
+            input(type="submit", value="Save", class="btn btn-lg btn-primary btn-block")
+            br
+            a(href="/")!= "Back to Employee List"

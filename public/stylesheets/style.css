@@ -1,75 +1,63 @@
+html,
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  text-align: center;
-  text-stroke: 1px rgba(255,255,255,0.1);
-  color: #555;
-}
-a {
-  color: #00b7ff;
-}
-h1,
-h2 {
-  margin: 0;
-  font-size: 22px;
-  color: #343434;
-}
-h1 {
-  text-shadow: 1px 2px 2px #ddd;
-  font-size: 60px;
-}
-#employees {
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-  width: 320px;
-}
-#employees .employee {
-  margin: 20px;
-}
-#employees .employee .created_at {
-  display: none;
-}
-#employees .employee .title {
-  font-weight: bold;
   background-color: #eee;
+  height: 100%;
 }
-#employees .employee .name {
-  background-color: #ffa;
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
 }
-#employees .employee input#delete {
-  margin-top: -17px;
-  margin-left: 255px;
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+  padding: 20px;
 }
-#employees .employee input#edit {
-  margin-top: -20px;
-  margin-left: 215px;
+
+.container {
+  width: auto;
+  max-width: 680px;
 }
-.newemployee {
-  border: 3px;
-  border-color: #000;
-  border-style: dotted;
-  width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 14px;
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
 }
-input[type =text] {
-  width: 200px;
-  margin-left: 16px;
-  float: left;
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
 }
-input[type =button],
-input[type =submit] {
-  clear: both;
-  text-align: left;
-  margin-left: 165px;
-  display: block;
+.form-signin .checkbox {
+  font-weight: normal;
 }
-.label {
-  width: 150px;
-  text-align: right !important;
-  display: block;
-  float: left;
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[name="title"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[name="name"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
