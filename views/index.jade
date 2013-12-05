@@ -10,9 +10,9 @@ block content
                   div(class="panel panel-primary")
                     div.created_at(class="hidden")= employee.created_at
                     div.panel-heading
-                        div.title(class="panel-title")= employee.title
+                        div.title(class="panel-title")= employee.name
                     div.panel-body
-                        div(class="col-md-10")= employee.name
+                        div(class="col-md-10")= employee.title
                         div.col-md-1
                             form( method="get", action="/employee/:id/edit")
                                 input(name="_id", type="hidden", value=employee._id.toHexString())
