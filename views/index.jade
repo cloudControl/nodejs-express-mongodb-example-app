@@ -1,10 +1,11 @@
 extends layout
 
 block content
+    h1 Hello world, I'm a Express + MongoDB app running on cloudControl!
     div(id="wrap")
         div.container
             div.page-header
-                h1= title
+                h2= title
             #employees
                 - each employee in employees
                   div(class="panel panel-primary")
@@ -22,12 +23,13 @@ block content
                                 input(name="_id", type="hidden", value=employee._id.toHexString())
                                 input(id="delete", value="X", type="submit" class="btn")
                 a(href="/employee/new")!= "Add New Employee"
+    div(id="rocket")
     div(id="footer")
         div.container
             p.text-muted
-                | Built with
-                | <a href="http://expressjs.com/">Express</a>,
-                | running on
-                | <a href="http://nodejs.org/">Node.JS</a>
-                | on
-                | <a href="https://www.cloudcontrol.com/">cloudControl</a>
+                | Coming from the
+                | <a href="https://www.cloudcontrol.com/dev-center/Guides/NodeJS/Express">Guide</a>?
+                | Check out
+                | <a href="https://www.cloudcontrol.com/dev-center/Guides/NodeJS/Express">more</a>
+                | about Node.js running on
+                | <a href="https://www.cloudcontrol.com/">cloudControl</a>.
