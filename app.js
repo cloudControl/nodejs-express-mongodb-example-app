@@ -29,7 +29,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-var employeeProvider= new EmployeeProvider('localhost', 27017);
+var employeeProvider= new EmployeeProvider();
 
 //Routes
 
@@ -53,8 +53,8 @@ app.get('/employee/new', function(req, res) {
 //save new employee
 app.post('/employee/new', function(req, res){
     employeeProvider.save({
-        title: req.param('title'),
-        name: req.param('name')
+        name: req.param('name'),
+        title: req.param('title')
     }, function( error, docs) {
         res.redirect('/')
     });
@@ -62,28 +62,29 @@ app.post('/employee/new', function(req, res){
 
 //update an employee
 app.get('/employee/:id/edit', function(req, res) {
-	employeeProvider.findById(req.param('_id'), function(error, employee) {
+	employeeProvider.findById(req.params.id, function(error, employee) {
 		res.render('employee_edit',
 		{
+			_id: employee._id.toHexString(),
+			name: employee.name,
 			title: employee.title,
-			employee: employee
 		});
 	});
 });
 
 //save updated employee
 app.post('/employee/:id/edit', function(req, res) {
-	employeeProvider.update(req.param('_id'),{
-		title: req.param('title'),
-		name: req.param('name')
+	employeeProvider.update(req.params.id,{
+		name: req.param('name'),
+		title: req.param('title')
 	}, function(error, docs) {
 		res.redirect('/')
 	});
 });
 
 //delete an employee
-app.post('/employee/:id/delete', function(req, res) {
-	employeeProvider.delete(req.param('_id'), function(error, docs) {
+app.get('/employee/:id/delete', function(req, res) {
+	employeeProvider.delete(req.params.id, function(error, docs) {
 		res.redirect('/')
 	});
 });

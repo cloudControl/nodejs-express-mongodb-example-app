@@ -1,29 +1,24 @@
 extends layout
 
 block content
-    h1 Hello world, I'm a Express + MongoDB app running on cloudControl!
     div(id="wrap")
         div.container
             div.page-header
-                h2= title
+                h1 <strong>Hi, I'm an Express + MongoDB app running on cloudControl!</strong>
             #employees
+                h2= title
                 - each employee in employees
                   div(class="panel panel-primary")
                     div.created_at(class="hidden")= employee.created_at
                     div.panel-heading
                         div.title(class="panel-title")= employee.name
                     div.panel-body
-                        div(class="col-md-10")= employee.title
-                        div.col-md-1
-                            form( method="get", action="/employee/:id/edit")
-                                input(name="_id", type="hidden", value=employee._id.toHexString())
-                                input(id="edit", value="Edit", type="submit" class="btn")
-                        div.col-md-1
-                            form( method="post", action="/employee/:id/delete")
-                                input(name="_id", type="hidden", value=employee._id.toHexString())
-                                input(id="delete", value="X", type="submit" class="btn")
-                a(href="/employee/new")!= "Add New Employee"
-    div(id="rocket")
+                        div(class="col-xs-10 col-md-10")= employee.title
+                        div(class="col-xs-1 col-md-1")
+                            a(href="/employee/" + employee._id.toHexString() + "/edit" class="btn btn-info")!= "Edit"
+                        div(class="col-xs-1 col-md-1")
+                            a(href="/employee/" + employee._id.toHexString() + "/delete" class="btn btn-danger")!= "X"
+                a(href="/employee/new" class="btn btn-default")!= "Add New Employee"
     div(id="footer")
         div.container
             p.text-muted
